@@ -13,9 +13,7 @@ int main()
 	// TODO:
 	// read the file "numbers" into the numbers vector
 	// read the file "search" into the search vector
-	// since you're basically doing the same thing twice,
-	// write a function to read a single file into a vector
-	// and then call this function twice.
+	
 
 	{
 		Timer timer("Time to linear search all values: ");
