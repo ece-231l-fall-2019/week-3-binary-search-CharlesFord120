@@ -1,43 +1,65 @@
 #include <vector>
-#include <math.h>
+#include <iostream>
 #include "search.h"
-
+using namespace std;
 bool binarySearch(const std::vector<int>& set, int value)
 {
 	size_t left = 0;
-	size_t right = set.size()-1;
-	while (true)
+	size_t right = set.size() - 1;
+	while (left < right)
 	{
-		size_t mid = floor((left+right)/2);
+		size_t mid = (left+right)/2;
 
-		if (left == value)
+		if (set[left] == value)
 		{
 			return true;
 		}
-		if (mid == value)
+		if (set[mid] == value)
 		{
 			return true;
 		}
-		if (right == value)
+		if (set[right] == value)
 		{
 			return true;
 		}               
-	       	if (mid < value)
-		 {
-		         left = mid;                                                                    }
-		if (mid > value)
+	       	if (set[mid] < value)
 		{
-		 	right = mid;                                                                   }
-		
+		         left = mid + 1;
+		}
+		else
+		{
+		 	right = mid - 1;
+		}
 	}	
 	return false;
 }
 
 bool binarySearch(const int *begin, const int *end, int value)
 {
-	while (true)
+	while (begin < end)
 	{
-		
+		const int *mid = begin + (end - begin) / 2;
+		if (*begin == value)
+		{
+			return true;
+		}
+		if (*mid == value)
+		{
+			return true;
+		}
+		if (*end == value)
+		{
+			return true;
+		}
+		if (*mid < value)
+		{
+			begin = mid + 1;
+		}
+		else
+		{
+			end = mid - 1;
+		}
+
 	}
 	return false;
 }

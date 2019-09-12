@@ -2,7 +2,8 @@
 
 bool linearSearch(const std::vector<int>& set, int value)
 {
-	for (int i = 0; i < set.size(); i++)
+
+	for (unsigned int i = 0; i < set.size(); i++)
 	{
 		if (set[i] == value)
 			return true;
@@ -12,7 +13,7 @@ bool linearSearch(const std::vector<int>& set, int value)
 
 bool linearSearch(const int *begin, const int *end, int value)
 {
-	for (int const i = begin; begin != end; i++)
+	for (int const *i = begin; i != end; i++)
 	{
 		if (*i == value)
 			return true;

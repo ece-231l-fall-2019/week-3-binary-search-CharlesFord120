@@ -1,20 +1,34 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-
+#include <string>
 #include "Timer.h"
 #include "search.h"
+using namespace std;
+
+void ReadFile(string filename, vector<int> &set)
+{
+        int value;
+        ifstream fin(filename);
+        while (fin >> value)
+        {
+		if (fin.eof())
+	        {
+			break;
+		}
+		set.push_back(value); }
+}
 
 int main()
 {
-	std::vector<int> numbers;
-	std::vector<int> search;
+	vector<int> numbers;
 
+	vector<int> search;
 	// TODO:
 	// read the file "numbers" into the numbers vector
 	// read the file "search" into the search vector
-	ifstream inputFile("numbers");
-
+	ReadFile("numbers", numbers);
+	ReadFile("search", search);
 
 	{
 		Timer timer("Time to linear search all values: ");
@@ -26,8 +40,8 @@ int main()
 				found++;
 		}
 
-		std::cout << "Found "<< found << "/"
-			<< search.size() << " values." << std::endl;
+		cout << "Found "<< found << "/"
+			<< search.size() << " values." << endl;
 	}
 
 	{
@@ -41,12 +55,10 @@ int main()
 				found++;
 		}
 
-		std::cout << "Found "<< found << "/"
-			<< search.size() << " values." << std::endl;
+		cout << "Found "<< found << "/"
+			<< search.size() << " values." << endl;
 	}
 
-	// TODO:
-	// repeat the above two blocks but use the binary search functions.
 	{
 	       	Timer timer("Time to Binary search all values: ");
 		int found = 0;
@@ -54,9 +66,10 @@ int main()
 		{
 			if (binarySearch(numbers, search[i]))
 				found++;
-			std::cout << "Found " << found << "/"
-				<< search.size() << "values. " << std::endl;
 		}
+			cout << "Found " << found << "/"
+				<< search.size() << " values." << endl;
+		
 	}
 
 	{
@@ -68,10 +81,9 @@ int main()
 		        if (binarySearch(numbers.data(), numbers.data() + numbers.size(),search[i]))
 				found++;
 	        }
- 	               std::cout << "Found "<< found << "/"
-	                    << search.size() << " values." << std::endl;
+ 	               cout << "Found "<< found << "/"
+	                    << search.size() << " values." << endl;
        	}
        	
 	return 0;
 }
-
