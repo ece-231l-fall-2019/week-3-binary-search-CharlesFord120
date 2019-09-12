@@ -60,7 +60,7 @@ int main()
 	}
 
 	{
-	       	Timer timer("Time to Binary search all values: ");
+	       	Timer timer("Time to binary search all values: ");
 		int found = 0;
 		for (size_t i = 0; i < search.size(); i++)
 		{
@@ -73,7 +73,7 @@ int main()
 	}
 
 	{
-	        Timer timer("Time to linear search all values (pointers): ");
+	        Timer timer("Time to binary search all values (pointers): ");
 
 	        int found = 0;
 	        for (size_t i = 0; i < search.size(); i++)
