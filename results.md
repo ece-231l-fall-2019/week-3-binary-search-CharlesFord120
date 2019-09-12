@@ -6,8 +6,8 @@ The code worked as exepected I did have some issues with the pointers and binary
 
 |      | Linear No Pointers | Linear Pointers |
 |:----:|:------------------:|:---------------:|
-| Time | 1.53569s           | 0.933342s       |
-| Found| 237/1999           | 237/1999        |
+| **Time** | 1.53569s           | 0.933342s       |
+| **Found**| 237/1999           | 237/1999        |
 
 The time it took to find all the values in the vector was shorter with Pointers because it didn't have to copy the vector every time it was called. 
 
