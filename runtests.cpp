@@ -4,6 +4,7 @@
 #include <string>
 #include "Timer.h"
 #include "search.h"
+#include "sort.h"
 using namespace std;
 
 void ReadFile(string filename, vector<int> &set)
@@ -74,8 +75,7 @@ int main()
 
 	{
 	        Timer timer("Time to binary search all values (pointers): ");
-
-	        int found = 0;
+		int found = 0;
 	        for (size_t i = 0; i < search.size(); i++)
 	        {
 		        if (binarySearch(numbers.data(), numbers.data() + numbers.size(),search[i]))
@@ -83,7 +83,13 @@ int main()
 	        }
  	               cout << "Found "<< found << "/"
 	                    << search.size() << " values." << endl;
-       	}
-       	
-	return 0;
-}
+        }
+	
+	{
+		Timer timer("Time to bubble sort: ");
+		bubbleSort(search.data(),search.data()+search.size());
+	}
+ 
+          
+ 	 return 0;          
+}                 
